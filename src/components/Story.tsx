@@ -30,7 +30,7 @@ export default function Story() {
     <section
       id="about"
       ref={containerRef}
-      className="bg-[#f0d8be] py-16 md:py-28 px-6"
+      className="scroll-mt-24 bg-[#f0d8be] py-16 md:py-28 px-6"
     >
       <div className="max-w-3xl mx-auto">
         <span className="story-block block font-body text-xs tracking-[0.3em] uppercase text-[#714630] mb-4">

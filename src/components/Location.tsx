@@ -30,7 +30,7 @@ export default function Location() {
     <section
       id="location"
       ref={containerRef}
-      className="bg-[#472f29] py-16 md:py-28 px-6"
+      className="scroll-mt-24 bg-[#472f29] py-16 md:py-28 px-6"
     >
       <div className="max-w-4xl mx-auto">
         <span className="location-item block font-body text-xs tracking-[0.3em] uppercase text-[#f0d8be]/60 mb-4 text-center">
@@ -45,9 +45,15 @@ export default function Location() {
           <div className="space-y-8">
             <div className="location-item">
               <p className="font-body text-[#f0d8be]/50 text-xs tracking-[0.25em] uppercase mb-2">Địa chỉ</p>
-              <p className="font-serif text-[#f0d8be] text-xl leading-snug">
+              <a
+                href="https://maps.app.goo.gl/J5tPw9h7Vo7wMP3V6"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Mở vị trí 9611 Kafé trên Google Maps — 01 Hàn Thuyên, Đà Lạt"
+                className="font-serif text-[#f0d8be] text-xl leading-snug block hover:text-white transition-colors underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f0d8be] focus-visible:outline-offset-2"
+              >
                 01 Hàn Thuyên, Đà Lạt
-              </p>
+              </a>
             </div>
 
             <div className="location-item">

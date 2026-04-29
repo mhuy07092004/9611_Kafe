@@ -1,7 +1,9 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import ImageLightbox from './ImageLightbox'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,6 +17,7 @@ const spaceImages = Object.values(
 
 export default function Spaces() {
   const containerRef = useRef<HTMLElement>(null)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
 
   useGSAP(
     () => {
@@ -37,6 +40,12 @@ export default function Spaces() {
 
   return (
     <section ref={containerRef} className="bg-[#f0d8be] py-16 md:py-28 px-4 sm:px-6">
+      <ImageLightbox
+        open={lightbox !== null}
+        onClose={() => setLightbox(null)}
+        src={lightbox?.src ?? null}
+        alt={lightbox?.alt ?? ''}
+      />
       <div className="max-w-5xl mx-auto">
         <span className="block font-body text-xs tracking-[0.3em] uppercase text-[#714630] mb-4 text-center">
           9611 Kafé
@@ -47,19 +56,25 @@ export default function Spaces() {
 
         {spaceImages.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
-            {spaceImages.map((src, i) => (
-              <div
-                key={i}
-                className="space-img group overflow-hidden aspect-[4/3]"
-              >
-                <img
-                  src={src}
-                  alt={`Không gian 9611 Kafé ${i + 1}`}
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:shadow-xl"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+            {spaceImages.map((src, i) => {
+              const alt = `Không gian 9611 Kafé ${i + 1}`
+              return (
+                <button
+                  key={`${src}-${i}`}
+                  type="button"
+                  onClick={() => setLightbox({ src, alt })}
+                  className="space-img group relative w-full overflow-hidden aspect-[4/3] bg-[#e8c9a0] block cursor-zoom-in text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#472f29]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0d8be]"
+                  aria-label={`Xem ảnh lớn — ${alt}`}
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-contain transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-xl"
+                    loading="lazy"
+                  />
+                </button>
+              )
+            })}
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">

@@ -21,6 +21,7 @@ export default function MenuPage() {
             <img
               src={newDrinksImg}
               alt="New drinks at 9611 Kafé"
+              loading="lazy"
               className="w-full rounded-sm object-cover"
             />
             <p className="mt-3 font-body text-[#f0d8be]/50 text-xs tracking-widest uppercase text-center">
@@ -36,6 +37,7 @@ export default function MenuPage() {
             <img
               src={menuImg}
               alt="9611 Kafé — full menu"
+              loading="lazy"
               className="w-full rounded-sm object-contain border border-[#f0d8be]/10"
             />
             <div className="mt-4 text-center">

@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import ImageLightbox from './ImageLightbox'
 import bestseller1 from '../assets/bestsellers/1.jpeg'
 import bestseller2 from '../assets/bestsellers/2.jpg'
 import bestseller3 from '../assets/bestsellers/3.jpg'
@@ -18,6 +19,7 @@ const items = [
 
 export default function MenuPreview() {
   const containerRef = useRef<HTMLElement>(null)
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
 
   useGSAP(
     () => {
@@ -41,8 +43,14 @@ export default function MenuPreview() {
     <section
       id="menu"
       ref={containerRef}
-      className="bg-[#472f29] py-16 md:py-28 px-4 sm:px-6"
+      className="scroll-mt-24 bg-[#472f29] py-16 md:py-28 px-4 sm:px-6"
     >
+      <ImageLightbox
+        open={lightbox !== null}
+        onClose={() => setLightbox(null)}
+        src={lightbox?.src ?? null}
+        alt={lightbox?.alt ?? ''}
+      />
       <div className="max-w-5xl mx-auto">
         <span className="block font-body text-xs tracking-[0.3em] uppercase text-[#f0d8be]/60 mb-4 text-center">
           9611 Kafé Menu
@@ -55,15 +63,21 @@ export default function MenuPreview() {
           {items.map(item => (
             <div
               key={item.id}
-              className="menu-card group cursor-default overflow-hidden"
+              className="menu-card group overflow-hidden"
             >
-              <div className="relative overflow-hidden aspect-[4/3] bg-[#f0d8be]">
+              <button
+                type="button"
+                onClick={() => setLightbox({ src: item.image, alt: item.name })}
+                className="relative w-full overflow-hidden aspect-[4/3] bg-[#f0d8be] block cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f0d8be]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#472f29]"
+                aria-label={`Xem ảnh — ${item.name}`}
+              >
                 <img
                   src={item.image}
-                  alt={item.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-              </div>
+              </button>
 
               <div className="pt-5 pb-2">
                 <div className="flex items-baseline justify-between mb-2">

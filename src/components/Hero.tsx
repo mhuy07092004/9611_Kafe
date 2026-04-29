@@ -36,7 +36,7 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-[100dvh] flex items-center justify-center text-center bg-cover bg-center"
+      className="scroll-mt-24 relative min-h-[100dvh] flex items-center justify-center text-center bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* warm dark overlay */}

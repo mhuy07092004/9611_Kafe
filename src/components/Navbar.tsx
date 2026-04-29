@@ -1,10 +1,11 @@
+import type { MouseEvent } from 'react'
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const links = [
   { label: 'Home', to: '/#home' },
   { label: 'About', to: '/#about' },
-  { label: 'Menu', to: '/menu' },
+  { label: 'Menu', to: '/#menu' },
   { label: 'Location', to: '/#location' },
 ]
 
@@ -12,6 +13,32 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const onAnchorLinkClick = (e: MouseEvent<HTMLAnchorElement>, to: string) => {
+    const match = /^\/#([\w-]+)$/.exec(to)
+    if (!match) {
+      setMenuOpen(false)
+      return
+    }
+    const sectionId = match[1]
+    setMenuOpen(false)
+
+    if (location.pathname !== '/') return
+
+    e.preventDefault()
+
+    if (location.hash === `#${sectionId}`) {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+      return
+    }
+
+    navigate({ pathname: '/', hash: sectionId })
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -112,6 +139,7 @@ export default function Navbar() {
             <li key={to}>
               <Link
                 to={to}
+                onClick={e => onAnchorLinkClick(e, to)}
                 className={[
                   'font-body text-xs tracking-[0.2em] uppercase transition-colors duration-300',
                   scrolled
@@ -168,7 +196,7 @@ export default function Navbar() {
             <li key={to}>
               <Link
                 to={to}
-                onClick={() => setMenuOpen(false)}
+                onClick={e => onAnchorLinkClick(e, to)}
                 className={[
                   'block py-3 font-body text-xs tracking-[0.2em] uppercase transition-colors touch-manipulation',
                   scrolled
