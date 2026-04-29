@@ -94,16 +94,6 @@ export default function Location() {
                   GrabFood
                 </span>
               </a>
-              <button
-                type="button"
-                disabled
-                className="flex items-center gap-4 px-5 py-4 border border-[#f0d8be]/10 opacity-40 cursor-not-allowed"
-              >
-                <ShopeeFoodIcon />
-                <span className="font-body text-[#f0d8be] text-sm">
-                  ShopeeFood <span className="text-[#f0d8be]/50 text-xs">(sắp có)</span>
-                </span>
-              </button>
             </div>
           </div>
         </div>

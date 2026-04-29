@@ -18,9 +18,9 @@ export const socialLinks = [
   },
   {
     label: 'TikTok',
-    href: '#',
+    href: 'https://www.tiktok.com/@9611kafe',
     icon: <TikTokIcon />,
-    placeholder: true,
+    placeholder: false,
   },
 ]
 
