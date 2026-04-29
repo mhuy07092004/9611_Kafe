@@ -106,7 +106,17 @@ function GrabIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
       <rect width="28" height="28" rx="6" fill="#00b14f" />
-      <text x="4" y="20" fontSize="13" fontWeight="bold" fill="white" fontFamily="sans-serif">Grab</text>
+      <text
+        x="50%"
+        y="18"
+        fontSize="10"
+        fontWeight="bold"
+        fill="white"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        textAnchor="middle"
+      >
+        Grab
+      </text>
     </svg>
   )
 }
