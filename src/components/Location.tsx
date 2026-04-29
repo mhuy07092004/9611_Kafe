@@ -120,12 +120,3 @@ function GrabIcon() {
     </svg>
   )
 }
-
-function ShopeeFoodIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <rect width="28" height="28" rx="6" fill="#ee4d2d" />
-      <text x="4" y="19" fontSize="10" fontWeight="bold" fill="white" fontFamily="sans-serif">Spee</text>
-    </svg>
-  )
-}

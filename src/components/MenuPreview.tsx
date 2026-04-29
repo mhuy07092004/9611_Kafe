@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,7 +12,7 @@ const items = [
   { id: 3, name: 'Tên Món 03', desc: 'Mô tả ngắn về món uống này.', price: 'xx.000đ' },
 ]
 
-export default function Menu() {
+export default function MenuPreview() {
   const containerRef = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -43,7 +44,7 @@ export default function Menu() {
           9611 Kafé Menu
         </span>
         <h2 className="font-serif text-[#f0d8be] text-3xl md:text-5xl text-center mb-10 md:mb-16">
-          Best Sellers 
+          Best Sellers
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
@@ -52,7 +53,6 @@ export default function Menu() {
               key={item.id}
               className="menu-card group cursor-default overflow-hidden"
             >
-              {/* placeholder image */}
               <div className="relative overflow-hidden aspect-[4/3] bg-[#f0d8be]">
                 <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
                   <span className="font-serif text-[#714630]/30 text-6xl select-none">
@@ -75,12 +75,12 @@ export default function Menu() {
         </div>
 
         <div className="mt-10 md:mt-14 text-center">
-          <button
-            type="button"
-            className="font-body text-[#f0d8be]/70 text-sm tracking-wide hover:text-[#f0d8be] transition-colors duration-200 cursor-not-allowed"
+          <Link
+            to="/menu"
+            className="font-body text-[#f0d8be]/70 text-sm tracking-wide hover:text-[#f0d8be] transition-colors duration-200"
           >
             Xem full menu tại đây →
-          </button>
+          </Link>
         </div>
       </div>
     </section>

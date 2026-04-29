@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Location', href: '#location' },
+  { label: 'Home', to: '/#home' },
+  { label: 'About', to: '/#about' },
+  { label: 'Menu', to: '/menu' },
+  { label: 'Location', to: '/#location' },
 ]
 
 export default function Navbar() {
@@ -30,8 +31,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
 
-        {/* Logo — code-based */}
-        <a href="#home" className="flex-shrink-0 flex items-center gap-2.5 select-none group">
+        {/* Logo */}
+        <Link to="/" className="flex-shrink-0 flex items-center gap-2.5 select-none group">
           {/* Coffee cup mark */}
           <svg
             width="32"
@@ -103,14 +104,14 @@ export default function Navbar() {
               Kafé
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
-          {links.map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
+          {links.map(({ label, to }) => (
+            <li key={to}>
+              <Link
+                to={to}
                 className={[
                   'font-body text-xs tracking-[0.2em] uppercase transition-colors duration-300',
                   scrolled
@@ -119,7 +120,7 @@ export default function Navbar() {
                 ].join(' ')}
               >
                 {label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -163,10 +164,10 @@ export default function Navbar() {
         ].join(' ')}
       >
         <ul className="flex flex-col gap-1 px-6 pt-2">
-          {links.map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
+          {links.map(({ label, to }) => (
+            <li key={to}>
+              <Link
+                to={to}
                 onClick={() => setMenuOpen(false)}
                 className={[
                   'block py-3 font-body text-xs tracking-[0.2em] uppercase transition-colors touch-manipulation',
@@ -176,7 +177,7 @@ export default function Navbar() {
                 ].join(' ')}
               >
                 {label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
