@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coffee: #714630;
+  --color-vanilla: #f0d8be;
+  --color-espresso: #472f29;
+  --color-warm-green: #5b594e;
+
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-body: "Agrandir", "Inter", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Agrandir";
+  src: url("/fonts/Agrandir-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agrandir";
+  src: url("/fonts/Agrandir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-vanilla);
+  color: var(--color-espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+/* Remove iOS tap highlight on interactive elements */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure images never overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
