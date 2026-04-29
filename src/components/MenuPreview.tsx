@@ -4,12 +4,16 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import bestseller1 from '../assets/bestsellers/1.jpeg'
+import bestseller2 from '../assets/bestsellers/2.jpg'
+import bestseller3 from '../assets/bestsellers/3.jpg'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const items = [
-  { id: 1, name: 'Americano Peach', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện syrup đào dịu ngọt, cân bằng vị đắng, mang lại cảm giác thư giãn giữa nhịp sống đô thị', price: '56.000đ' },
-  { id: 2, name: 'ChaMel', desc: 'Matcha thanh mát mix với caramel ngọt dịu, sữa tươi, cân bằng vị êm ái, phù hợp cho những người không thích vị đắng của cà phê', price: '49.000đ' },
-  { id: 3, name: 'Pink Honey Salt Coffee', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện mật ong và kem muối hồng béo mịn, cân bằng giữa vị ngọt – mặn – đắng, giải tõa căn thẳng sau những ngày dài', price: '56.000đ' },
+  { id: 1, name: 'Americano Peach', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện syrup đào dịu ngọt, cân bằng vị đắng, mang lại cảm giác thư giãn giữa nhịp sống đô thị', price: '56.000đ', image: bestseller1 },
+  { id: 2, name: 'ChaMel', desc: 'Matcha thanh mát mix với caramel ngọt dịu, sữa tươi, cân bằng vị êm ái, phù hợp cho những người không thích vị đắng của cà phê', price: '49.000đ', image: bestseller2 },
+  { id: 3, name: 'Pink Honey Salt Coffee', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện mật ong và kem muối hồng béo mịn, cân bằng giữa vị ngọt – mặn – đắng, giải tõa căn thẳng sau những ngày dài', price: '56.000đ', image: bestseller3 },
 ]
 
 export default function MenuPreview() {
@@ -54,11 +58,11 @@ export default function MenuPreview() {
               className="menu-card group cursor-default overflow-hidden"
             >
               <div className="relative overflow-hidden aspect-[4/3] bg-[#f0d8be]">
-                <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                  <span className="font-serif text-[#714630]/30 text-6xl select-none">
-                    {String(item.id).padStart(2, '0')}
-                  </span>
-                </div>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
 
               <div className="pt-5 pb-2">
