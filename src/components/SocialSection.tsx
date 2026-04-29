@@ -49,10 +49,10 @@ export default function SocialSection() {
     <section ref={containerRef} className="bg-[#f0d8be] py-16 md:py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <span className="block font-body text-xs tracking-[0.3em] uppercase text-[#714630] mb-4">
-          Theo dõi chúng tôi
+          Theo dõi tụi mình tại Đây
         </span>
         <h2 className="font-serif text-[#472f29] text-2xl md:text-4xl mb-10 md:mb-12">
-          Kết nối với 9611
+          9611 Kafé
         </h2>
 
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-10">
