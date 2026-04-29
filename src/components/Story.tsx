@@ -34,12 +34,12 @@ export default function Story() {
     >
       <div className="max-w-3xl mx-auto">
         <span className="story-block block font-body text-xs tracking-[0.3em] uppercase text-[#714630] mb-4">
-          Our Story
+          9611 Kafé
         </span>
 
         <div className="story-block mb-10 md:mb-16">
           <h2 className="font-serif text-[#472f29] text-3xl md:text-5xl leading-tight mb-5 md:mb-6">
-            Về chúng tôi
+            Về Tụi Mình
           </h2>
           <p className="font-body text-[#5b594e] text-base md:text-lg leading-loose">
             9611 Coffee là không gian cà phê hiện đại và gần gũi, nơi bạn có thể tạm gác lại
@@ -51,7 +51,7 @@ export default function Story() {
 
         <div className="story-block border-t border-[#714630]/20 pt-10 md:pt-16">
           <h3 className="font-serif text-[#472f29] text-xl md:text-3xl mb-4 md:mb-5">
-            Câu chuyện của chúng tôi
+            Câu chuyện của tụi mình
           </h3>
           <p className="font-body text-[#5b594e] text-base md:text-lg leading-loose">
             Giữa nhịp sống nhanh và những bộn bề thường nhật, 9611 Coffee ra đời như một góc
