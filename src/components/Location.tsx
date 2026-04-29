@@ -30,7 +30,7 @@ export default function Location() {
     <section
       id="location"
       ref={containerRef}
-      className="bg-[#714630] py-16 md:py-28 px-6"
+      className="bg-[#472f29] py-16 md:py-28 px-6"
     >
       <div className="max-w-4xl mx-auto">
         <span className="location-item block font-body text-xs tracking-[0.3em] uppercase text-[#f0d8be]/60 mb-4 text-center">
