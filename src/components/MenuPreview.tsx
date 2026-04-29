@@ -7,9 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const items = [
-  { id: 1, name: 'Tên Món 01', desc: 'Mô tả ngắn về món uống này.', price: 'xx.000đ' },
-  { id: 2, name: 'Tên Món 02', desc: 'Mô tả ngắn về món uống này.', price: 'xx.000đ' },
-  { id: 3, name: 'Tên Món 03', desc: 'Mô tả ngắn về món uống này.', price: 'xx.000đ' },
+  { id: 1, name: 'Americano Peach', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện syrup đào dịu ngọt, cân bằng vị đắng, mang lại cảm giác thư giãn giữa nhịp sống đô thị', price: '56.000đ' },
+  { id: 2, name: 'ChaMel', desc: 'Matcha thanh mát mix với caramel ngọt dịu, sữa tươi, cân bằng vị êm ái, phù hợp cho những người không thích vị đắng của cà phê', price: '49.000đ' },
+  { id: 3, name: 'Pink Honey Salt Coffee', desc: 'Espresso đậm từ hạt cà phê Robusta, hòa quyện mật ong và kem muối hồng béo mịn, cân bằng giữa vị ngọt – mặn – đắng, giải tõa căn thẳng sau những ngày dài', price: '56.000đ' },
 ]
 
 export default function MenuPreview() {
