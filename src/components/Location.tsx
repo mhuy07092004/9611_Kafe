@@ -34,10 +34,10 @@ export default function Location() {
     >
       <div className="max-w-4xl mx-auto">
         <span className="location-item block font-body text-xs tracking-[0.3em] uppercase text-[#f0d8be]/60 mb-4 text-center">
-          Ghé thăm chúng tôi
+          Ghé Tụi Mình Khi Ra Đà Lạt
         </span>
         <h2 className="location-item font-serif text-[#f0d8be] text-3xl md:text-5xl text-center mb-10 md:mb-16">
-          Tìm chúng tôi
+          Tìm Tụi Mình Tại Đây
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start">
