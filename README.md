@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# 9611 Kafé — Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page-style marketing portfolio for **9611 Kafé**, a modern café in Đà Lạt (Vietnam). The site presents the venue’s story, menu preview, interior spaces, location, and social links so visitors can explore the brand in the browser before visiting in person.
 
-Currently, two official plugins are available:
+**Live routes:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **`/`** — Landing page with hero, story, menu teaser, gallery-style spaces, map/location block, and social section.
+- **`/menu`** — Full menu page (lazy-loaded for faster initial load).
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
 
-## Expanding the ESLint configuration
+| Path | Role |
+|------|------|
+| `index.html` | HTML shell, favicon, meta tags, root mount point `#root`. |
+| `vite.config.ts` | Vite build config (React plugin + Tailwind). |
+| `package.json` | Dependencies, scripts (`dev`, `build`, `lint`, `preview`). |
+| `public/` | Static assets served as-is (`logo.svg`, `icons.svg`, etc.). |
+| `src/main.tsx` | App entry: mounts React into `#root`, loads global styles. |
+| `src/index.css` | Global CSS (Tailwind layers / project-wide styles). |
+| `src/App.tsx` | Wraps the app in `BrowserRouter` for client-side routing. |
+| `src/pages.tsx` | Route table: `/` → `Home`, `/menu` → `Menu`; uses `Suspense` + `lazy()` for code-splitting. |
+| `src/pages/Home.tsx` | Composes all home sections (`Navbar`, `Hero`, `Story`, …) and handles hash scrolling. |
+| `src/pages/Menu.tsx` | Standalone menu page. |
+| `src/components/` | Reusable UI blocks (navbar, hero, story, previews, footer, etc.). |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Flow in one sentence:** `main.tsx` → `App.tsx` → `pages.tsx` → either `Home` or `Menu`, each assembling pieces from `components/`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Category | Choices |
+|----------|---------|
+| **Language** | [TypeScript](https://www.typescriptlang.org/) |
+| **UI library** | [React](https://react.dev/) 19 |
+| **Build tool & dev server** | [Vite](https://vite.dev/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) v4 via `@tailwindcss/vite` |
+| **Routing** | [React Router](https://reactrouter.com/) (`react-router-dom`) |
+| **Animation** | [GSAP](https://greensock.com/gsap/) + [`@gsap/react`](https://github.com/greensock/react) |
+| **Linting** | [ESLint](https://eslint.org/) 10 with TypeScript ESLint and React Hooks / Refresh plugins |
+
+---
+
+## Scripts
+
+```bash
+npm run dev      # Start dev server (Vite + HMR)
+npm run build    # Type-check then production build → dist/
+npm run preview  # Preview the production build locally
+npm run lint     # Run ESLint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Requirements
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [Node.js](https://nodejs.org/) (current LTS recommended)
+- npm (or compatible package manager)
+
+Clone the repo, run `npm install`, then `npm run dev`.
